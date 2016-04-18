@@ -1,0 +1,7 @@
+*.py[co]
+*.sw[op]
+/.ropeproject
+/.tox
+/*.egg-info
+/.cache
+/docs/build
