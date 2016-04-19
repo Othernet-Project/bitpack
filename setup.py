@@ -2,7 +2,7 @@ import os
 from setuptools import setup
 
 
-NAME = 'bitstream'
+NAME = 'bitpack'
 VERSION = '0.1'
 
 
@@ -14,12 +14,12 @@ def read(fname):
 setup(
     name=NAME,
     description='Python data-binary serialization / deserialization library.',
-    keywords='bitstream serialization deserialization',
+    keywords='bitpack serialization deserialization',
     version=VERSION,
     author='Outernet Inc',
     author_email='apps@outernet.is',
     license='GPLv3',
-    url='https://github.com/Outernet-Project/bitstream',
+    url='https://github.com/Outernet-Project/bitpack',
     long_description=read('README.rst'),
     py_modules=[NAME],
     install_required=[

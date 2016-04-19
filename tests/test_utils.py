@@ -1,6 +1,6 @@
 import pytest
 
-import bitstream.utils as mod
+import bitpack.utils as mod
 
 
 @pytest.mark.parametrize('fmt,data,exp', [

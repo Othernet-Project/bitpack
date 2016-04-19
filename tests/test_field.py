@@ -1,7 +1,7 @@
 import mock
 import pytest
 
-import bitstream.field as mod
+import bitpack.field as mod
 
 
 @pytest.fixture

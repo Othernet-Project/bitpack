@@ -4,7 +4,7 @@ import struct
 def pack(fmt, raw_data):
     """Delegates calls to `struct.pack` without any intervention. Exists for
     the sole purpose to make the API nicer, by providing a twin to the
-    ``bitstream.utils.unpack`` function, which performs not only delegation,
+    ``bitpack.utils.unpack`` function, which performs not only delegation,
     but also some additional work.
 
     :param fmt:      struct format string

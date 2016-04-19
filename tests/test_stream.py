@@ -1,12 +1,12 @@
 import mock
 import pytest
 
-import bitstream.stream as mod
+import bitpack.stream as mod
 
 
 @pytest.fixture
 def bit_stream():
-    from bitstream.field import BitField
+    from bitpack.field import BitField
 
     class AStream(mod.BitStream):
         start_marker = 'HBO'
