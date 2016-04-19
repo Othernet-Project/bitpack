@@ -1,4 +1,4 @@
-Working with bitstream
-======================
+Working with bitpack
+====================
 
-This section gives you a quick overview of bitstream library usage.
+This section gives you a quick overview of bitpack library usage.

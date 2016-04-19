@@ -7,8 +7,8 @@ a compact binary representation.
 Source code
 -----------
 
-BitStream source code can be found `on GitHub
-<https://github.com/Outernet-Project/bitstream>`_ and is released under GPLv3
+bitpack source code can be found `on GitHub
+<https://github.com/Outernet-Project/bitpack>`_ and is released under GPLv3
 license. See the ``COPYING`` file in the source tree for more information.
 
 Documentation

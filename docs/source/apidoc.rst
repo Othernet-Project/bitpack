@@ -1,7 +1,7 @@
 API documentation
 =================
 
-.. automodule:: bitstream
+.. automodule:: bitpack
     :members:
     :undoc-members:
     :show-inheritance:

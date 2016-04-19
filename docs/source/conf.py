@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# bitstream documentation build configuration file, created by
-# sphinx-quickstart on Tue Apr 19 12:32:13 2016.
+# bitpack documentation build configuration file, created by
+# sphinx-quickstart on Tue Apr 19 15:15:31 2016.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -47,7 +47,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'bitstream'
+project = u'bitpack'
 copyright = u'2016, Outernet Inc'
 author = u'Outernet Inc'
 
@@ -122,7 +122,7 @@ html_theme = 'alabaster'
 
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
-#html_title = u'bitstream v0.1'
+#html_title = u'bitpack v0.1'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
@@ -204,7 +204,7 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'bitstreamdoc'
+htmlhelp_basename = 'bitpackdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -226,7 +226,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'bitstream.tex', u'bitstream Documentation',
+    (master_doc, 'bitpack.tex', u'bitpack Documentation',
      u'Outernet Inc', 'manual'),
 ]
 
@@ -256,7 +256,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'bitstream', u'bitstream Documentation',
+    (master_doc, 'bitpack', u'bitpack Documentation',
      [author], 1)
 ]
 
@@ -270,8 +270,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'bitstream', u'bitstream Documentation',
-     author, 'bitstream', 'One line description of project.',
+    (master_doc, 'bitpack', u'bitpack Documentation',
+     author, 'bitpack', 'One line description of project.',
      'Miscellaneous'),
 ]
 
