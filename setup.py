@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 NAME = 'bitpack'
@@ -21,8 +21,8 @@ setup(
     license='GPLv3',
     url='https://github.com/Outernet-Project/bitpack',
     long_description=read('README.rst'),
-    py_modules=[NAME],
-    install_required=[
+    packages=find_packages(),
+    install_requires=[
         'bitarray',
     ],
     classifiers=[
