@@ -70,3 +70,11 @@ def test_bit_field_serialize_unknown_type():
     inst = mod.BitField(name='test', index=2, width=42, data_type='invalid')
     with pytest.raises(ValueError):
         inst.serialize(mock.Mock())
+
+
+def test_register_data_type():
+    serializer = mock.Mock()
+    deserializer = mock.Mock()
+    mod.BitField.register_data_type('test', serializer, deserializer)
+    assert mod.BitField._serializers['test'] is serializer
+    assert mod.BitField._deserializers['test'] is deserializer

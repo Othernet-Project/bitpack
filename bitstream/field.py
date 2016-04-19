@@ -120,4 +120,4 @@ class BitField(object):
         :param deserializer_fn: function that performs deserialization
         """
         cls._serializers[data_type] = serializer_fn
-        cls._deserializer[data_type] = deserializer_fn
+        cls._deserializers[data_type] = deserializer_fn
