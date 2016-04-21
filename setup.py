@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 
 NAME = 'bitpack'
-VERSION = '0.1'
+VERSION = '1.0'
 
 
 def read(fname):
@@ -18,7 +18,7 @@ setup(
     version=VERSION,
     author='Outernet Inc',
     author_email='apps@outernet.is',
-    license='GPLv3',
+    license='BSD',
     url='https://github.com/Outernet-Project/bitpack',
     long_description=read('README.rst'),
     packages=find_packages(),
@@ -26,7 +26,7 @@ setup(
         'bitarray',
     ],
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
