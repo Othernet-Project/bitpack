@@ -111,8 +111,28 @@ def test_deserialize(bit_stream):
 def test_deserialize_start_marker_mismatch(bit_stream):
     data = 'HBU\x90\x08\x00\x00\x1e\x1e\x56\x91\x2a\xf3\x53\xd0\x92\x00'
     inst = bit_stream(data)
-    with pytest.raises(ValueError):
-        inst.deserialize()
+    assert inst.deserialize() == []
+
+
+def test_deserialize_end_marker_mismatch(bit_stream):
+    data = 'HBO\x90\x08\x00\x00\x1e\x1e\x56\x91\x2a\xf3\x53\xd0\x93\x00'
+    inst = bit_stream(data)
+    assert inst.deserialize() == []
+
+
+def test_concatenate_serialized_forms(bit_stream):
+    single = 'HBO\x90\x08\x00\x00\x1e\x1e\x56\x91\x2a\xf3\x53\xd0\x92\x00'
+    concatenated = single + single
+    expected = [{'int_fld': 2,
+                 'flt_fld': 2.5,
+                 'str_fld': 'xyZD',
+                 'hex_fld': 'abcd'},
+                {'int_fld': 2,
+                 'flt_fld': 2.5,
+                 'str_fld': 'xyZD',
+                 'hex_fld': 'abcd'}]
+    inst = bit_stream(concatenated)
+    assert inst.deserialize() == expected
 
 
 @mock.patch.object(mod.BitStream, 'deserialize')

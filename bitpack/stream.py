@@ -89,18 +89,16 @@ class BitStream(object):
         """
         bitstream = bitarray()
         bitstream.frombytes(self._data)
+        start_pattern = bitarray()
+        start_pattern.frombytes(self.start_marker)
         end_pattern = bitarray()
         end_pattern.frombytes(self.end_marker)
-        pattern_width = end_pattern.length()
-        start = pattern_width
+        pattern_width = start_pattern.length()
         deserialized = []
-        for end in bitstream.itersearch(end_pattern):
-            found_start = bitstream[start - pattern_width:start].tobytes()
-            if found_start != self.start_marker:
-                raise ValueError('Start marker does not match.')
-            data = self._from_datagram(bitstream[start:end])
+        for (start, end) in zip(bitstream.itersearch(start_pattern),
+                                bitstream.itersearch(end_pattern)):
+            data = self._from_datagram(bitstream[start + pattern_width:end])
             deserialized.append(data)
-            start = end + pattern_width * 2
         return deserialized
 
     @classmethod
