@@ -14,6 +14,14 @@ class BitStream(object):
     :attr end_marker:   A string used to indicate the end of a data record
                         in it's serialized form.
 
+    Overridable methods:
+    :meth on_serialize_datagram: Called when a datagram has been serialized.
+                                 The index of the data & the data used are
+                                 sent as parameters.
+    :meth on_deserialize_datagram: Called when a datagram has been
+                                   deserialized. The index of the data & the
+                                   data used are sent as parameters.
+
     Constructor arguments:
 
     :param data: it serves multiple purposes:
