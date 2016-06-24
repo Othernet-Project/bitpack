@@ -35,17 +35,21 @@ class BitField(object):
     :param data_type: unique identifier of the data type for which there
                       exists a registered serializer / deserializer
     """
+    passthrough_datatype = 'bitarray'
+
     _serializers = {
         'integer': lambda x: pack('>i', x),
         'float': lambda x: pack('>f', x),
         'hex': lambda x: hex_to_bytes(x),
         'string': lambda x: x,
+        'bitarray': lambda x: x,
     }
     _deserializers = {
         'integer': lambda x: unpack('>i', x),
         'float': lambda x: unpack('>f', x),
         'hex': lambda x: bytes_to_hex(x),
         'string': lambda x: x,
+        'bitarray': lambda x: x,
     }
 
     def __new__(cls, *args, **kwargs):
@@ -83,13 +87,16 @@ class BitField(object):
 
         :param value: value to be serialized
         """
-        b = bitarray()
         try:
             fn = self._serializers[self.data_type]
         except KeyError:
             raise ValueError('Unknown data_type: {}'.format(self.data_type))
         else:
-            b.frombytes(fn(value))
+            if self.data_type == self.passthrough_datatype:
+                b = fn(value)
+            else:
+                b = bitarray()
+                b.frombytes(fn(value))
             # cut off unused bits
             return b[b.length() - self.width:]
 
@@ -102,7 +109,10 @@ class BitField(object):
         bits.reverse()
         bits.fill()
         bits.reverse()
-        raw = bits.tobytes()
+        if self.data_type == self.passthrough_datatype:
+            raw = bits
+        else:
+            raw = bits.tobytes()
         try:
             fn = self._deserializers[self.data_type]
         except KeyError:
