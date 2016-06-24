@@ -67,8 +67,9 @@ class BitStream(object):
         constructor and return it in it's serialized form.
         """
         bitstream = bitarray()
-        for item in self._data:
+        for index, item in enumerate(self._data):
             bitstream = bitstream + self._to_datagram(item)
+            self.on_serialize_datagram(index, item)
         return bitstream.tobytes()
 
     def _from_datagram(self, datagram):
@@ -95,11 +96,18 @@ class BitStream(object):
         end_pattern.frombytes(self.end_marker)
         pattern_width = start_pattern.length()
         deserialized = []
-        for (start, end) in zip(bitstream.itersearch(start_pattern),
-                                bitstream.itersearch(end_pattern)):
+        for index, (start, end) in enumerate(zip(bitstream.itersearch(start_pattern),
+                                                 bitstream.itersearch(end_pattern))):
             data = self._from_datagram(bitstream[start + pattern_width:end])
             deserialized.append(data)
+            self.on_deserialize_datagram(index, data)
         return deserialized
+
+    def on_serialize_datagram(self, index, data):
+        pass
+
+    def on_deserialize_datagram(self, index, data):
+        pass
 
     @classmethod
     def to_bytes(cls, raw_data):
